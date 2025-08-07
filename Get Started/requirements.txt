@@ -1,5 +1,5 @@
-pip install ipykernal,
-pip install numpy,
-
+ipykernal
+numpy
+pandas
 
 
