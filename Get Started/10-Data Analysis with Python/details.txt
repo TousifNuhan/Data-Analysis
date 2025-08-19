@@ -1,0 +1,12 @@
+## pandas : 
+
+      name  age
+10   Alice   25
+11     Bob   30
+12 Charlie   35
+
+print(df.loc[10])   # ✅ works: index label 10 exists
+print(df.iloc[0])   # ✅ works: first row by position
+
+
+
