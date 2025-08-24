@@ -10,3 +10,53 @@ print(df.iloc[0])   # ✅ works: first row by position
 
 
 
+## Rolling_mean:
+
+rolling_mean = df.rolling(window=7).mean()
+df.rolling(window=7) → Creates a moving window of 7 rows (in your case, 7 days, since your index is daily).
+
+.mean() → For each position of the window, Pandas computes the average of the values inside that window.
+
+Step-by-step example
+Suppose your data column is:
+
+yaml
+Copy
+Edit
+Date       data
+2021-01-01   10
+2021-01-02   20
+2021-01-03   30
+2021-01-04   40
+2021-01-05   50
+2021-01-06   60
+2021-01-07   70
+2021-01-08   80
+Now apply rolling(window=3).mean() (3-day rolling mean):
+
+First 2 rows → NaN (not enough values yet for a full window)
+
+Row 3 (Jan 3): mean(10,20,30) = 20
+
+Row 4 (Jan 4): mean(20,30,40) = 30
+
+Row 5 (Jan 5): mean(30,40,50) = 40
+
+Row 6 (Jan 6): mean(40,50,60) = 50
+
+Row 7 (Jan 7): mean(50,60,70) = 60
+
+Row 8 (Jan 8): mean(60,70,80) = 70
+
+Result:
+
+Date       rolling_mean
+2021-01-01     NaN
+2021-01-02     NaN
+2021-01-03     20.0
+2021-01-04     30.0
+2021-01-05     40.0
+2021-01-06     50.0
+2021-01-07     60.0
+2021-01-08     70.0
+
